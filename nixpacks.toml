@@ -2,10 +2,10 @@
 nixPkgs = ['nodejs_20']
 
 [phases.install]
-cmds = ['cd neverness-builds && npm install']
+cmds = ['npm install']
 
 [phases.build]
-cmds = ['cd neverness-builds && npm run build']
+cmds = ['npm run build']
 
 [start]
-cmd = 'cd neverness-builds && npm run preview -- --host 0.0.0.0 --port $PORT'
+cmd = 'npm run preview -- --host 0.0.0.0 --port $PORT'
