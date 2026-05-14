@@ -93,14 +93,14 @@ export function CharacterDetail() {
             title="Game8 Build"
             source="game8"
             build={game8Build}
-            url={`https://game8.co/games/Neverness-to-Everness/characters/${character.name.toLowerCase()}`}
+            url={`https://game8.co/games/Neverness-to-Everness/archives/597504`}
           />
           
           <BuildSection
             title="Neverness.gg Build"
             source="neverness"
             build={nevernessGGBuild}
-            url={`https://neverness.gg/characters/${character.name.toLowerCase()}`}
+            url={`https://neverness.gg/${character.name.toLowerCase().replace(/\s+/g, '-')}-nte-build/`}
           />
         </div>
       </div>
@@ -147,45 +147,50 @@ function BuildSection({ title, source, build, url }: BuildSectionProps) {
         </a>
       </div>
 
-      {build.weapons && build.weapons.length > 0 && (
+      {build.arcs && build.arcs.length > 0 && (
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-white mb-3">Recommended Weapons</h3>
+          <h3 className="text-xl font-semibold text-white mb-3">Recommended Arcs</h3>
           <div className="space-y-3">
-            {build.weapons.map((weapon: any, idx: number) => (
+            {build.arcs.map((arc: any, idx: number) => (
               <div key={idx} className="bg-slate-700/30 rounded-lg p-3">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="font-semibold text-white">{weapon.name}</span>
-                  <span className="text-yellow-400">{'★'.repeat(weapon.rarity)}</span>
+                  <span className="font-semibold text-white">{arc.name}</span>
+                  <span className="text-yellow-400 text-sm">Priority #{arc.priority}</span>
                 </div>
-                <p className="text-sm text-slate-300">{weapon.description}</p>
+                {arc.description && <p className="text-sm text-slate-300">{arc.description}</p>}
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {build.artifacts && build.artifacts.length > 0 && (
+      {build.cartridge && build.cartridge.length > 0 && (
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-white mb-3">Artifact Sets</h3>
+          <h3 className="text-xl font-semibold text-white mb-3">Cartridges</h3>
           <div className="space-y-3">
-            {build.artifacts.map((artifact: any, idx: number) => (
+            {build.cartridge.map((cart: any, idx: number) => (
               <div key={idx} className="bg-slate-700/30 rounded-lg p-3">
-                <div className="font-semibold text-white mb-2">
-                  {artifact.setName} ({artifact.pieces})
+                <div className="font-semibold text-white mb-1">{cart.name}</div>
+                {cart.description && <p className="text-sm text-slate-300">{cart.description}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {build.modules && build.modules.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-white mb-3">Modules</h3>
+          <div className="space-y-3">
+            {build.modules.map((mod: any, idx: number) => (
+              <div key={idx} className="bg-slate-700/30 rounded-lg p-3">
+                <div className="font-semibold text-white mb-1">{mod.slot}</div>
+                <div className="text-sm text-slate-300">
+                  <div>Main Stat: <span className="text-purple-300">{mod.mainStat}</span></div>
+                  {mod.subStats && mod.subStats.length > 0 && (
+                    <div>Sub Stats: {mod.subStats.join(', ')}</div>
+                  )}
                 </div>
-                {artifact.mainStats && (
-                  <div className="text-sm text-slate-300 mb-2">
-                    <div><strong>Main Stats:</strong></div>
-                    {artifact.mainStats.sands && <div>• Sands: {artifact.mainStats.sands}</div>}
-                    {artifact.mainStats.goblet && <div>• Goblet: {artifact.mainStats.goblet}</div>}
-                    {artifact.mainStats.circlet && <div>• Circlet: {artifact.mainStats.circlet}</div>}
-                  </div>
-                )}
-                {artifact.subStats && artifact.subStats.length > 0 && (
-                  <div className="text-sm text-slate-300">
-                    <strong>Sub Stats:</strong> {artifact.subStats.join(', ')}
-                  </div>
-                )}
               </div>
             ))}
           </div>

@@ -1,84 +1,134 @@
 import type { Character } from '../types';
 
 export const characters: Character[] = [
-  {
-    id: 'sakiri',
-    name: 'Sakiri',
-    rarity: 5,
-    element: 'Umbra',
-    role: 'DPS',
-    imageUrl: '/characters/sakiri.png'
-  },
+  // S-Rank (5★) Characters
   {
     id: 'nanally',
     name: 'Nanally',
     rarity: 5,
-    element: 'Cryo',
+    element: 'Anima',
     role: 'DPS',
     imageUrl: '/characters/nanally.png'
   },
   {
-    id: 'marian',
-    name: 'Marian',
+    id: 'sagiri',
+    name: 'Sagiri',
     rarity: 5,
-    element: 'Pyro',
-    role: 'DPS',
-    imageUrl: '/characters/marian.png'
+    element: 'Incantation',
+    role: 'Buff',
+    imageUrl: '/characters/sagiri.png'
   },
   {
-    id: 'skadi',
-    name: 'Skadi',
+    id: 'baicang',
+    name: 'Baicang',
     rarity: 5,
-    element: 'Electro',
+    element: 'Incantation',
     role: 'DPS',
-    imageUrl: '/characters/skadi.png'
+    imageUrl: '/characters/baicang.png'
   },
   {
-    id: 'haru',
-    name: 'Haru',
+    id: 'chiz',
+    name: 'Chiz',
     rarity: 5,
-    element: 'Anemo',
-    role: 'Support',
-    imageUrl: '/characters/haru.png'
+    element: 'Cosmos',
+    role: 'DPS',
+    imageUrl: '/characters/chiz.png'
   },
   {
-    id: 'florence',
-    name: 'Florence',
+    id: 'daffodill',
+    name: 'Daffodill',
     rarity: 5,
-    element: 'Hydro',
-    role: 'Healer',
-    imageUrl: '/characters/florence.png'
-  },
-  {
-    id: 'kira',
-    name: 'Kira',
-    rarity: 4,
-    element: 'Geo',
-    role: 'Support',
-    imageUrl: '/characters/kira.png'
-  },
-  {
-    id: 'wei',
-    name: 'Wei',
-    rarity: 4,
-    element: 'Pyro',
+    element: 'Chaos',
     role: 'DPS',
-    imageUrl: '/characters/wei.png'
+    imageUrl: '/characters/daffodill.png'
   },
   {
-    id: 'yuki',
-    name: 'Yuki',
-    rarity: 4,
-    element: 'Cryo',
-    role: 'Support',
-    imageUrl: '/characters/yuki.png'
-  },
-  {
-    id: 'jin',
-    name: 'Jin',
-    rarity: 4,
-    element: 'Electro',
+    id: 'esper-zero',
+    name: 'Esper Zero',
+    rarity: 5,
+    element: 'Cosmos',
     role: 'DPS',
-    imageUrl: '/characters/jin.png'
+    imageUrl: '/characters/esper-zero.png'
+  },
+  {
+    id: 'fadia',
+    name: 'Fadia',
+    rarity: 5,
+    element: 'Psyche',
+    role: 'Survival',
+    imageUrl: '/characters/fadia.png'
+  },
+  {
+    id: 'hathor',
+    name: 'Hathor',
+    rarity: 5,
+    element: 'Lakshana',
+    role: 'DPS',
+    imageUrl: '/characters/hathor.png'
+  },
+  {
+    id: 'hotori',
+    name: 'Hotori',
+    rarity: 5,
+    element: 'Cosmos',
+    role: 'Buff',
+    imageUrl: '/characters/hotori.png'
+  },
+  {
+    id: 'jiuyuan',
+    name: 'Jiuyuan',
+    rarity: 5,
+    element: 'Anima',
+    role: 'DPS',
+    imageUrl: '/characters/jiuyuan.png'
+  },
+  // A-Rank (4★) Characters
+  {
+    id: 'adler',
+    name: 'Adler',
+    rarity: 4,
+    element: 'Incantation',
+    role: 'Survival',
+    imageUrl: '/characters/adler.png'
+  },
+  {
+    id: 'aurelia',
+    name: 'Aurelia',
+    rarity: 4,
+    element: 'Psyche',
+    role: 'DPS',
+    imageUrl: '/characters/aurelia.png'
+  },
+  {
+    id: 'edgar',
+    name: 'Edgar',
+    rarity: 4,
+    element: 'Cosmos',
+    role: 'Survival',
+    imageUrl: '/characters/edgar.png'
+  },
+  {
+    id: 'haniel',
+    name: 'Haniel',
+    rarity: 4,
+    element: 'Psyche',
+    role: 'Buff',
+    imageUrl: '/characters/haniel.png'
+  },
+  {
+    id: 'mint',
+    name: 'Mint',
+    rarity: 4,
+    element: 'Anima',
+    role: 'DPS',
+    imageUrl: '/characters/mint.png'
+  },
+  {
+    id: 'skia',
+    name: 'Skia',
+    rarity: 4,
+    element: 'Lakshana',
+    role: 'DPS',
+    imageUrl: '/characters/skia.png'
   }
 ];

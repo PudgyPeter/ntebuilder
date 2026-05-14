@@ -12,27 +12,28 @@ RUN npm ci
 # Copy source files
 COPY . .
 
-# Build the application
+# Build the frontend
 RUN npm run build
 
-# Production stage - use lightweight static server
+# Production stage
 FROM node:22-alpine AS runner
 
 WORKDIR /app
 
-# Install serve for static file serving
-RUN npm install -g serve
+# Copy package files and install production deps
+COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Copy built assets only
+# Copy built frontend
 COPY --from=builder /app/dist ./dist
+
+# Copy server and API source files (tsx runs them directly)
+COPY server.ts ./
+COPY api/ ./api/
+COPY src/types/ ./src/types/
 
 # Railway provides PORT env var
 ENV PORT=3000
 
-# Create start script that can't be overridden
-RUN echo '#!/bin/sh' > /start.sh && \
-    echo 'exec serve -s /app/dist -l ${PORT}' >> /start.sh && \
-    chmod +x /start.sh
-
-# Use ENTRYPOINT so Railway can't override with npm commands
-ENTRYPOINT ["/start.sh"]
+# Start the Express server with tsx
+ENTRYPOINT ["npx", "tsx", "server.ts"]
