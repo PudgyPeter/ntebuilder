@@ -3,6 +3,6 @@ builder = "DOCKERFILE"
 dockerfilePath = "neverness-builds/Dockerfile"
 
 [deploy]
-startCommand = "serve -s /app/dist -l $PORT"
+startCommand = "serve -s /app/dist -p $PORT"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
