@@ -1,8 +1,8 @@
 [build]
-builder = "nixpacks"
-buildCommand = "npm install && npm run build"
+builder = "DOCKERFILE"
+dockerfilePath = "neverness-builds/Dockerfile"
 
 [deploy]
-startCommand = "npm run preview -- --host 0.0.0.0 --port $PORT"
+startCommand = "serve -s /app/dist -l $PORT"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
