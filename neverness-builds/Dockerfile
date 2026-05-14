@@ -15,18 +15,19 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Production stage
+# Production stage - use lightweight static server
 FROM node:22-alpine AS runner
 
 WORKDIR /app
 
-# Copy built assets and package files
+# Install serve for static file serving
+RUN npm install -g serve
+
+# Copy built assets only
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/node_modules ./node_modules
 
-# Expose port (Railway provides $PORT)
-EXPOSE ${PORT:-3000}
+# Railway provides PORT env var
+ENV PORT=3000
 
-# Start preview server - Railway overrides with startCommand in railway.json
-CMD ["sh", "-c", "npm run preview -- --host 0.0.0.0 --port ${PORT:-3000}"]
+# Serve static files
+CMD ["sh", "-c", "serve -s dist -l ${PORT}"]
