@@ -29,5 +29,10 @@ COPY --from=builder /app/dist ./dist
 # Railway provides PORT env var
 ENV PORT=3000
 
-# Serve static files
-CMD ["sh", "-c", "serve -s dist -l ${PORT}"]
+# Create start script that can't be overridden
+RUN echo '#!/bin/sh' > /start.sh && \
+    echo 'exec serve -s /app/dist -l ${PORT}' >> /start.sh && \
+    chmod +x /start.sh
+
+# Use ENTRYPOINT so Railway can't override with npm commands
+ENTRYPOINT ["/start.sh"]
